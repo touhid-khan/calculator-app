@@ -23,10 +23,23 @@ body {
     padding: 5px;
 }
 
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
 button {
-    width: 50px;
-    height: 40px;
-    margin: 5px;
+    height: 45px;
     font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background: #3b3b5c;
+    color: white;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #50507a;
 }
