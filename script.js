@@ -12,10 +12,16 @@ buttons.forEach(button => {
             updateDisplay();
         } else if (value === "=") {
             calculateResult();
-        } else {
+        } 
+        else if (value === "⌫") {
+            currentInput = currentInput.slice(0, -1);
+            updateDisplay();
+        }
+        else {
             currentInput += value;
             updateDisplay();
         }
+        
     });
 });
 
