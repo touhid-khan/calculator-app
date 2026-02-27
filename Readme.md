@@ -1,16 +1,15 @@
 # Calculator App
 
-A simple calculator built using HTML, CSS, and JavaScript.
+A responsive calculator built using HTML, CSS, and JavaScript.
 
 ## Features
 - Basic arithmetic operations
-- Keyboard support
-- Clean responsive design
+- Safe evaluation logic (without eval)
+- Backspace support
+- Modern grid UI layout
+- Keyboard input support
 
-## Technologies Used
+## Technologies
 - HTML
-- CSS
-- JavaScript
-
-## How to Run
-Open index.html in your browser.
+- CSS Grid
+- JavaScript (DOM Manipulation)
