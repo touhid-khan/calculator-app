@@ -8,6 +8,7 @@
 <body>
 
     <div class="calculator">
+        <button id="themeToggle">Toggle Theme</button>
         <input type="text" id="display" disabled>
 
         <div class="buttons">
@@ -40,34 +41,6 @@
         </div>
     </div>
 
-<script src="script.js">
-    if (value === "C") {
-            currentInput = "";
-            updateDisplay();
-
-        } else if (value === "⌫") {
-            currentInput = currentInput.slice(0, -1);
-            updateDisplay();
-
-        } else if (value === "%") {
-            currentInput = (parseFloat(currentInput) / 100).toString();
-            updateDisplay();
-
-        } else if (value === "x²") {
-            currentInput = (parseFloat(currentInput) ** 2).toString();
-            updateDisplay();
-
-        } else if (value === "√") {
-            currentInput = Math.sqrt(parseFloat(currentInput)).toString();
-            updateDisplay();
-
-        } else if (value === "=") {
-            calculateResult();
-
-        } else {
-            currentInput += value;
-            updateDisplay();
-        }
-</script>
+<script src="script.js"></script>
 </body>
 </html>

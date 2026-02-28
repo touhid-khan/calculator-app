@@ -44,6 +44,20 @@ button:hover {
     background: #50507a;
 }
 
+.light-mode {
+    background: #f2f2f2;
+    color: black;
+}
+
+.light-mode .calculator {
+    background: white;
+}
+
+.light-mode button {
+    background: #ddd;
+    color: black;
+}
+
 @media (max-width: 500px) {
     .calculator {
         width: 90%;
