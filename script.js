@@ -1,8 +1,11 @@
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".buttons button");
 
+// Button Clicks
 buttons.forEach(button => {
-    button.addEventListener("click", () => handleInput(button.textContent));
+    button.addEventListener("click", () => {
+        handleInput(button.textContent);
+    });
 });
 
 function handleInput(value) {
@@ -28,15 +31,33 @@ function calculate() {
     }
 }
 
-const toggleBtn = document.getElementById("themeToggle");
+// ✅ Keyboard Support
+document.addEventListener("keydown", (e) => {
 
-toggleBtn.addEventListener("click", () => {
+    const key = e.key;
 
-    document.body.classList.toggle("light");
+    // Numbers
+    if (!isNaN(key)) {
+        display.value += key;
+    }
 
-    if (document.body.classList.contains("light")) {
-        toggleBtn.textContent = "🌙 Dark Mode";
-    } else {
-        toggleBtn.textContent = "☀ Light Mode";
+    // Operators
+    if (["+", "-", "*", "/", ".", "%"].includes(key)) {
+        display.value += key;
+    }
+
+    // Enter
+    if (key === "Enter") {
+        calculate();
+    }
+
+    // Backspace
+    if (key === "Backspace") {
+        display.value = display.value.slice(0, -1);
+    }
+
+    // Escape = Clear
+    if (key === "Escape") {
+        display.value = "";
     }
 });
