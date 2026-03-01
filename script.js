@@ -34,18 +34,29 @@ function handleInput(value) {
 const historyContainer = document.getElementById("history");
 
 function calculate() {
-
     try {
         const expression = display.value;
+
+        if (!expression) return;
+
+        // Only allow safe characters
+        if (!/^[0-9+\-*/%.() ]+$/.test(expression)) {
+            display.value = "Error";
+            return;
+        }
+
         const result = Function('"use strict";return (' + expression + ')')();
+
+        if (!isFinite(result)) {
+            display.value = "Error";
+            return;
+        }
 
         // Add to history
         const historyItem = document.createElement("div");
         historyItem.textContent = `${expression} = ${result}`;
-
         historyContainer.appendChild(historyItem);
 
-        // Auto scroll
         historyContainer.scrollTop = historyContainer.scrollHeight;
 
         display.value = result;
