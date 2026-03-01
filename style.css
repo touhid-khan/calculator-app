@@ -28,6 +28,7 @@ body.light .calculator {
 
 body.light button {
     background: #e0e0e0;
+    color: black;
 }
 
 #display {
@@ -44,6 +45,14 @@ body.light button {
     white-space: nowrap;
 }
 
+
+#themeToggle {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
 .buttons {
     display: grid;
