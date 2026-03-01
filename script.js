@@ -23,9 +23,25 @@ function handleInput(value) {
     }
 }
 
+const historyContainer = document.getElementById("history");
+
 function calculate() {
+
     try {
-        display.value = Function('"use strict";return (' + display.value + ')')();
+        const expression = display.value;
+        const result = Function('"use strict";return (' + expression + ')')();
+
+        // Add to history
+        const historyItem = document.createElement("div");
+        historyItem.textContent = `${expression} = ${result}`;
+
+        historyContainer.appendChild(historyItem);
+
+        // Auto scroll
+        historyContainer.scrollTop = historyContainer.scrollHeight;
+
+        display.value = result;
+
     } catch {
         display.value = "Error";
     }

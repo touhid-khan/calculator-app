@@ -95,3 +95,20 @@ button:active {
         font-size: 16px;
     }
 }
+
+
+#history {
+    height: 80px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+body.light #history {
+    color: #555;
+}
+
+#history div {
+    padding: 3px 0;
+}
