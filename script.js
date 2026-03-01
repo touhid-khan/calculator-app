@@ -1,3 +1,13 @@
+const clickSound = new Audio();
+clickSound.src = "/Audio/click.wav";
+clickSound.preload = "auto";
+
+function playSound() {
+    clickSound.currentTime = 0;
+    clickSound.play().catch(() => {});
+}
+
+
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".buttons button");
 
@@ -18,17 +28,15 @@ function handleInput(value) {
         display.value = "";
     }
 
-    else {
-
-    const lastChar = display.value.slice(-1);
-    const operators = ["+", "-", "*", "/", "%"];
-
-    if (operators.includes(value) && operators.includes(lastChar)) {
-        return; // prevent double operators
+    else if (value === "⌫") {
+        display.value = display.value.slice(0, -1);
     }
 
-    display.value += value;
-}
+    else {
+        display.value += value;
+    }
+
+    playSound();
 }
 
 const historyContainer = document.getElementById("history");
@@ -60,6 +68,10 @@ function calculate() {
         historyContainer.scrollTop = historyContainer.scrollHeight;
 
         display.value = result;
+        display.classList.add("result-animate");
+        setTimeout(() => {
+            display.classList.remove("result-animate");
+        }, 300);
 
     } catch {
         display.value = "Error";

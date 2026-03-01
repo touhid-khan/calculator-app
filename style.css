@@ -7,15 +7,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #222;
-    font-family: Arial;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: Arial, sans-serif;
 }
 
+
 .calculator {
-    background: #333;
-    padding: 20px;
-    border-radius: 12px;
-    width: 280px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 body.light {
@@ -56,7 +60,7 @@ body.light button {
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
 }
 
@@ -64,16 +68,17 @@ button {
     padding: 15px;
     font-size: 18px;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     cursor: pointer;
-    background: #444;
+    background: rgba(255,255,255,0.15);
     color: white;
+    backdrop-filter: blur(10px);
     transition: all 0.2s ease;
 }
 
 button:hover {
-    background: #666;
-    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-3px);
 }
 
 button:active {
@@ -111,4 +116,15 @@ body.light #history {
 
 #history div {
     padding: 3px 0;
+}
+
+
+.result-animate {
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
