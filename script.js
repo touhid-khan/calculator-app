@@ -19,8 +19,16 @@ function handleInput(value) {
     }
 
     else {
-        display.value += value;
+
+    const lastChar = display.value.slice(-1);
+    const operators = ["+", "-", "*", "/", "%"];
+
+    if (operators.includes(value) && operators.includes(lastChar)) {
+        return; // prevent double operators
     }
+
+    display.value += value;
+}
 }
 
 const historyContainer = document.getElementById("history");
